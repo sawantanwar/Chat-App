@@ -36,7 +36,7 @@ export default function ProfilePanel({ onClose }) {
         ← Back to chat
       </button>
 
-      <div className="bg-white p-6 rounded shadow w-[350px]">
+      <div className="bg-white p-6 rounded shadow w-87.5">
         <div className="flex flex-col items-center">
           <img
             src={
