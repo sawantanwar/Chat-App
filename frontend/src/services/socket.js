@@ -3,7 +3,6 @@ import { io } from "socket.io-client";
 export const connectSocket = (token) => {
   return io(import.meta.env.VITE_BACKEND_URL, {
     auth: { token },
-    // transports: ["websocket"],
   });
 };
 
