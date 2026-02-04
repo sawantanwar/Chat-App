@@ -6,6 +6,11 @@ const auth = require("../middleware/authMiddleware");
 const router = express.Router();
 const { decrypt } = require("../utils/encrypt");
 
+router.options("/unread", (req, res) => {
+  res.sendStatus(200);
+});
+
+
 // ✅ Get unread count per sender (FIXED ObjectId issue)
 router.get("/unread", auth, async (req, res) => {
   try {
