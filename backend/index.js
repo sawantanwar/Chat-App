@@ -17,9 +17,14 @@ const app = express();
 const server = http.createServer(app);
 
 // ✅ CORS CONFIG (VERY IMPORTANT)
+
 app.use(cors({
-  origin: process.env.CLIENT_URL,
-  credentials: true,
+  origin: [
+    "http://localhost:5173",
+    "https://chat-app-beige-xi-60.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
 
 app.use(express.json());
@@ -36,11 +41,14 @@ app.use("/api/messages", messageRoutes);
 
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL,
-    methods: ["GET", "POST"],
-    credentials: true,
-  },
+    origin: [
+      "http://localhost:5173",
+      "https://chat-app-beige-xi-60.vercel.app"
+    ],
+    methods: ["GET", "POST"]
+  }
 });
+
 
 app.set("io", io);
 socketHandler(io);
