@@ -16,7 +16,7 @@ connectDB();
 const app = express();
 const server = http.createServer(app);
 
-// ✅ FULL CORS (REST APIs)
+// ✅ CORS CONFIG (SAFE)
 app.use(cors({
   origin: [
     "http://localhost:5173",
@@ -26,9 +26,6 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
-
-// 🔥 IMPORTANT: handle preflight
-app.options("*", cors());
 
 app.use(express.json());
 
@@ -57,7 +54,7 @@ const io = new Server(server, {
 
 socketHandler(io);
 
-// ⚠️ Render needs dynamic port
+// ⚠️ Render dynamic port
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log("Server running on", PORT));
 
