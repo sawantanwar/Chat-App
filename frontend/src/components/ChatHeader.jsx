@@ -8,7 +8,7 @@ export default function ChatHeader({ user, typing ,onlineUsers}) {
 
       <div className="h-10 w-10 bg-white rounded-full" onClick={()=>{setOpen(true)}}>
         <img
-              src={`http://localhost:5000${user.avatar}`}
+              src={`${import.meta.env.VITE_BACKEND_URL}${user.avatar}`}
               className="w-10 h-10 rounded-full object-cover"
         />
       </div>
@@ -20,7 +20,7 @@ export default function ChatHeader({ user, typing ,onlineUsers}) {
           onClick={() => setOpen(false)} // outside click
         >
           <img
-            src={`http://localhost:5000${user.avatar}`}
+            src={`${import.meta.env.VITE_BACKEND_URL}${user.avatar}`}
             className="w-72 h-72 md:w-96 md:h-96 object-cover"
             onClick={(e) => e.stopPropagation()} // image pe click = close na ho
           />

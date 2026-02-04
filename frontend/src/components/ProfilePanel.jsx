@@ -42,7 +42,7 @@ export default function ProfilePanel({ onClose }) {
             src={
               preview
                 ? preview
-                : `http://localhost:5000${user.avatar}`
+                : `${import.meta.env.VITE_BACKEND_URL}${user.avatar}`
             }
             className="w-32 h-32 rounded-full object-cover border"
           />

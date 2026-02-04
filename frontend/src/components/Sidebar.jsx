@@ -21,7 +21,7 @@ export default function Sidebar({ users, openChat, unread, onlineUsers, lastMsgs
             className="flex items-center gap-2 cursor-pointer"
           >
             <img
-              src={`http://localhost:5000${user.avatar}`}
+              src={`${import.meta.env.VITE_BACKEND_URL}${user.avatar}`}
               className="w-10 h-10 rounded-full object-cover bg-white"
             />
             <span className="font-medium">{user.username}</span>
@@ -44,9 +44,7 @@ export default function Sidebar({ users, openChat, unread, onlineUsers, lastMsgs
                 {/* USER DP */}
                 <img
                   src={
-                    u.avatar
-                      ? `http://localhost:5000${u.avatar}`
-                      : "http://localhost:5000/uploads/default_profile.png"
+                    `${import.meta.env.VITE_BACKEND_URL}${u.avatar || "/uploads/default_profile.png"}`
                   }
                   className="w-12 h-12 rounded-full object-cover"
                   alt="dp"
