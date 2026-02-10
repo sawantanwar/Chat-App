@@ -3,13 +3,9 @@ import { AuthContext } from "../context/AuthContext";
 import ProfilePanel from "./ProfilePanel";
 
 export default function Sidebar({ users, openChat, unread, onlineUsers, lastMsgs }) {
-  const { user, setUser } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const [showProfile, setShowProfile] = useState(false);
 
-  const logout = () => {
-    setUser(null);
-    window.location.reload();
-  };
 
   return (
     <>
